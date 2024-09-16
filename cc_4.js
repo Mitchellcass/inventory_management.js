@@ -26,5 +26,20 @@ product.lowStockLevel ? "Low Stock":"In Stock"
     
 }
 
-console.log(display(inventory[0]));
+console.log(display(inventory[0])); //shows that inventory for printer is "In Stock"
+
+
+//Task 3 update product stock after sales
+function updateStock(product, unitsSold) {
+    product.quantity -= unitsSold;
+    if (product.quantity === 0) {
+        console.log(`${product.name} is now out of stock.`)
+    } else if (product.quantity < product.lowStockLevel) {
+        console.log(`${product.name} is now low stock.`)
+    } else {
+        console.log(`${product.name} stock updated. Remaining quantity: ${product.quantity}`)
+    }
+}
+
+updateStock(inventory[0], 2);
 
