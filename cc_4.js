@@ -43,3 +43,20 @@ function updateStock(product, unitsSold) {
 
 updateStock(inventory[0], 2);
 
+//Task 4 function to check low stock products
+function checkLowStock() {
+    inventory.forEach(product => {
+        if (product.quantity < product.lowStockLevel) {
+            console.log(`${product.name} low stock level.`)
+        }
+    })
+}
+checkLowStock()
+
+//Task 5 calculate total inventory value
+function calculateInventoryValue() {
+    return inventory.reduce((totalValue, product) => totalValue + (product.price * product.quantity), 0)
+}
+
+console.log(`Total Inventory Value: $${calculateInventoryValue()}`)
+
