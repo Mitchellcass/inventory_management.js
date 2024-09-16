@@ -18,3 +18,13 @@ let inventory = [
 
 console.log (inventory)
 
+//Task 2 display product details function
+function display(product) {
+    const status = product.quantity <=
+product.lowStockLevel ? "Low Stock":"In Stock"
+    return `${product.name} is ${status}`
+    
+}
+
+console.log(display(inventory[0]));
+
