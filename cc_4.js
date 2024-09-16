@@ -55,8 +55,21 @@ checkLowStock()
 
 //Task 5 calculate total inventory value
 function calculateInventoryValue() {
-    return inventory.reduce((totalValue, product) => totalValue + (product.price * product.quantity), 0)
+    return inventory.reduce((totalValue, product) => 
+        totalValue + (product.price * product.quantity), 0)
 }
 
 console.log(`Total Inventory Value: $${calculateInventoryValue()}`)
 
+//Task 6 function to process a sale
+function processSale(productName, unitsSold) {
+    let product = inventory.find(item => item.name === productName)
+    
+    if (product) {
+        updateStock(product, unitsSold);
+    } else {
+        console.log(`Error: ${productName} not found in inventory.`)
+    }
+}
+
+processSale("Printer", 1) // example of printer sale
